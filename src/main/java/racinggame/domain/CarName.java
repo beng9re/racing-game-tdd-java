@@ -6,7 +6,7 @@ public class CarName {
 	private final static String EMPTY_STRING = "";
 	private String name;
 
-	public CarName(String name) {
+	CarName(String name) {
 		validate(name);
 		name = this.name;
 	}
