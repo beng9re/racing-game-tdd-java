@@ -3,20 +3,34 @@ package racinggame.util;
 public class ValidationUtils {
 	private final static String COMMA = ",";
 
-	public static boolean nameValid(String text) {
+	public static ValidationStatus nameValid(String text) {
 		if (text == null || text.length() == 0) {
-			return false;
+			return ValidationStatus.NAMES_NULL_ERROR;
 		}
-		return !COMMA.equals(text.substring(text.length() - 1))
-			&& !COMMA.equals(text.substring(0, 1));
+		if (COMMA.equals(text.substring(text.length() - 1)) || COMMA.equals(text.substring(0, 1))) {
+			return ValidationStatus.NAMES_COMM_ERROR;
+		}
+		if (!nameFiveValid(text)) {
+			return ValidationStatus.NAME_SIZE_FIVE_ERROR;
+		}
+		return ValidationStatus.OK;
 	}
 
-	public static boolean validNumber(String s) {
-		try {
-			Integer.parseInt(s);
-		}catch (NumberFormatException e) {
-			return false;
+	private static boolean nameFiveValid(String texts) {
+		for (String text : texts.split(",")) {
+			if (text.length() > 5) {
+				return false;
+			}
 		}
 		return true;
+	}
+
+	public static ValidationStatus validNumber(String s) {
+		try {
+			Integer.parseInt(s);
+		} catch (NumberFormatException e) {
+			return ValidationStatus.TRY_TO_NUMBER_ERROR;
+		}
+		return ValidationStatus.OK;
 	}
 }
