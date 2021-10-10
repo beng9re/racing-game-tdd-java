@@ -10,9 +10,7 @@ public class OutPutView {
 	}
 
 	public void winnerPrint(Winners winners) {
-		System.out.println(new StringBuilder("최종 우승자는 ")
-			.append(winners)
-			.append(" 입니다."));
+		System.out.println("최종 우승자는 " + winners + " 입니다.");
 	}
 
 	public void printMessage(String message) {

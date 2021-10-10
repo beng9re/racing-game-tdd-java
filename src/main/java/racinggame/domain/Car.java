@@ -25,9 +25,7 @@ public class Car {
 
 	@Override
 	public String toString() {
-		return new StringBuilder(carName.getName())
-			.append(" : ")
-			.append(carPosition).toString();
+		return carName.getName() + " : " + carPosition;
 	}
 
 	public CarPositionCompareStatus compete(Car targetCar) {

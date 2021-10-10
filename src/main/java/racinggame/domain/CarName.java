@@ -25,14 +25,14 @@ public class CarName {
 	}
 
 	@Override
-	public boolean equals(Object o) {
-		if (this == o) {
+	public boolean equals(Object targetName) {
+		if (this == targetName) {
 			return true;
 		}
-		if (o == null || getClass() != o.getClass()) {
+		if (targetName == null || getClass() != targetName.getClass()) {
 			return false;
 		}
-		CarName carName = (CarName)o;
+		CarName carName = (CarName)targetName;
 		return Objects.equals(name, carName.name);
 	}
 

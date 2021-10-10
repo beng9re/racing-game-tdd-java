@@ -8,7 +8,7 @@ public class RacingGameController {
 	private final InputView inputView;
 	private final OutPutView outPutView;
 	private final RacingGameService racingGameService;
-	public RacingGameController(InputView inputView, OutPutView outPutView,RacingGameService racingGameService) {
+	public RacingGameController(InputView inputView, OutPutView outPutView, RacingGameService racingGameService) {
 		this.inputView = inputView;
 		this.outPutView = outPutView;
 		this.racingGameService = new RacingGameService();

@@ -1,7 +1,7 @@
 package racinggame.util;
 
 public class ValidationUtils {
-	private final static String COMMA = ",";
+	private static final String COMMA = ",";
 
 	public static ValidationStatus nameValid(String text) {
 		if (text == null || text.length() == 0) {
@@ -25,9 +25,9 @@ public class ValidationUtils {
 		return true;
 	}
 
-	public static ValidationStatus validNumber(String s) {
+	public static ValidationStatus validNumber(String text) {
 		try {
-			Integer.parseInt(s);
+			Integer.parseInt(text);
 		} catch (NumberFormatException e) {
 			return ValidationStatus.TRY_TO_NUMBER_ERROR;
 		}

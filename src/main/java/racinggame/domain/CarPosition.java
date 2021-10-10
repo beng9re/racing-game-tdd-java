@@ -28,7 +28,7 @@ public class CarPosition {
 	}
 
 	private void validate(int number) {
-		if(number < 0) {
+		if (number < 0) {
 			throw new IllegalArgumentException("숫자는 -가 될수 없습니다.");
 		}
 	}
@@ -43,12 +43,14 @@ public class CarPosition {
 	}
 
 	@Override
-	public boolean equals(Object o) {
-		if (this == o)
+	public boolean equals(Object target) {
+		if (this == target) {
 			return true;
-		if (o == null || getClass() != o.getClass())
+		}
+		if (target == null || getClass() != target.getClass()) {
 			return false;
-		CarPosition that = (CarPosition)o;
+		}
+		CarPosition that = (CarPosition)target;
 		return position == that.position;
 	}
 
