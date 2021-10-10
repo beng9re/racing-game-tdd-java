@@ -3,13 +3,14 @@ package racinggame.domain;
 import java.util.ArrayList;
 import java.util.List;
 
+import racinggame.util.ValidationStatus;
 import racinggame.util.ValidationUtils;
 
 public class Cars {
 	List<Car> carList;
 	private static final String REGEX_TOKEN = ",";
 
-	Cars(String carNames) {
+	public Cars(String carNames) {
 		validation(carNames);
 		carList = mapCarList(carNames);
 	}
@@ -32,8 +33,9 @@ public class Cars {
 
 
 	private void validation(String carNames) {
-		if(!ValidationUtils.nameValid(carNames)) {
-			throw new IllegalArgumentException("[ERROR] carNames는 쉼표(,)로 구별하여야 합니다.");
+		ValidationStatus status = ValidationUtils.nameValid(carNames);
+		if (!ValidationStatus.OK.equals(status)) {
+			throw new IllegalArgumentException(status.getMessage());
 		}
 	}
 
