@@ -17,6 +17,16 @@ public class CarPosition {
 
 	}
 
+	public CarPositionCompareStatus compareCarPosition(CarPosition carPosition) {
+		if (this.position < carPosition.position) {
+			return CarPositionCompareStatus.SMALL;
+		}
+		if (this.position > carPosition.position) {
+			return CarPositionCompareStatus.BIG;
+		}
+		return CarPositionCompareStatus.SAME;
+	}
+
 	private void validate(int number) {
 		if(number < 0) {
 			throw new IllegalArgumentException("숫자는 -가 될수 없습니다.");

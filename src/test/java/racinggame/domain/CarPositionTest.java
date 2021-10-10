@@ -20,4 +20,11 @@ class CarPositionTest {
 		assertThat(forPosition.toString()).isEqualTo("-----");
 	}
 
+	@Test
+	void 두개의_자동차거리를_비교한다() {
+		assertThat(new CarPosition(3).compareCarPosition(new CarPosition(4))).isEqualTo(CarPositionCompareStatus.SMALL);
+		assertThat(new CarPosition(5).compareCarPosition(new CarPosition(4))).isEqualTo(CarPositionCompareStatus.BIG);
+		assertThat(new CarPosition(4).compareCarPosition(new CarPosition(4))).isEqualTo(CarPositionCompareStatus.SAME);
+	}
+
 }

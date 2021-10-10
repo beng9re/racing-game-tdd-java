@@ -29,4 +29,8 @@ public class Car {
 			.append(" : ")
 			.append(carPosition).toString();
 	}
+
+	public CarPositionCompareStatus compete(Car targetCar) {
+		return this.carPosition.compareCarPosition(targetCar.carPosition);
+	}
 }

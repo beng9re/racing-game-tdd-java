@@ -54,8 +54,6 @@ public class CarTest {
 		assertThat(car.carPosition).isEqualTo(new CarPosition(2));
 	}
 
-
-
 	@Test
 	void 자동차의_현재상태를_출력한다() {
 		assertThat(car.toString()).isEqualTo("자동차 : ");
@@ -63,6 +61,15 @@ public class CarTest {
 		assertThat(car.toString()).isEqualTo("자동차 : -");
 	}
 
-
-
+	@Test
+	void 다른자동차와_거리를_기준으로_경쟁() {
+		Car car = new Car("자동차");
+		Car car2 = new Car("자동차2");
+		assertThat(car.compete(car2)).isEqualTo(CarPositionCompareStatus.SAME);
+		car2.move();
+		assertThat(car.compete(car2)).isEqualTo(CarPositionCompareStatus.SMALL);
+		car.move();
+		car.move();
+		assertThat(car.compete(car2)).isEqualTo(CarPositionCompareStatus.BIG);
+	}
 }
