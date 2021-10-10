@@ -43,9 +43,9 @@ public class CarsTest {
 
 	@Test
 	void 도착거리가_최대인_차를_찾는다() {
-		List<Car> maxCar = cars.positionMaxCarList();
 		cars.getCar(1).move();
 		cars.getCar(2).move();
+		List<Car> maxCar = cars.positionMaxCarList();
 		assertThat(maxCar.get(0).carName()).isEqualTo("sad");
 		assertThat(maxCar.get(1).carName()).isEqualTo("asdr");
 	}
