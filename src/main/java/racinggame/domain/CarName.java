@@ -13,10 +13,10 @@ public class CarName {
 
 	private void validate(String carName) {
 		if (carName == null || carName.equals(EMPTY_STRING)) {
-			throw new IllegalStateException("[ERROR] 이름에는 공백이 들어갈 수 없습니다. :'" + carName + "'");
+			throw new IllegalArgumentException("[ERROR] 이름에는 공백이 들어갈 수 없습니다. :'" + carName + "'");
 		}
 		if (carName.length() > 5) {
-			throw new IllegalStateException("[ERROR] 이름은 5이하여야 합니다. length: " + carName.length());
+			throw new IllegalArgumentException("[ERROR] 이름은 5이하여야 합니다. length: " + carName.length());
 		}
 	}
 

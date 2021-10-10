@@ -23,13 +23,13 @@ public class CarTest {
 	void 차의_이름의_길이가_5자_이하여야_한다() {
 		assertThatNoException().isThrownBy(()-> new CarName("asdr"));
 		assertThatNoException().isThrownBy(()-> new CarName("asdra"));
-		assertThatIllegalStateException().isThrownBy(()->new CarName("asdras"));
+		assertThatIllegalArgumentException().isThrownBy(()->new CarName("asdras"));
 	}
 
 	@Test
 	void 차이름이_공백이_발생할경우_에러가_나타난다() {
-		assertThatIllegalStateException().isThrownBy(()->new CarName(null));
-		assertThatIllegalStateException().isThrownBy(()->new CarName(""));
+		assertThatIllegalArgumentException().isThrownBy(()->new CarName(null));
+		assertThatIllegalArgumentException().isThrownBy(()->new CarName(""));
 	}
 
 	@Test
