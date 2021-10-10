@@ -2,7 +2,7 @@ package racinggame;
 
 import nextstep.utils.Randoms;
 import racinggame.domain.Cars;
-
+import racinggame.domain.Winners;
 
 public class RacingGameService {
 
@@ -20,5 +20,7 @@ public class RacingGameService {
 		return stringBuilder.toString();
 	}
 
-
+	public Winners winner(Cars cars) {
+		return new Winners(cars);
+	}
 }
