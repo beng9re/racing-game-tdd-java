@@ -1,19 +1,16 @@
 package racinggame.domain;
 
 public class Car {
-	private int position;
+	CarPosition carPosition;
 	CarName carName;
 
 	public Car(String carName) {
 		this.carName = new CarName(carName);
+		this.carPosition = new CarPosition(0);
 	}
 
 	void move() {
-		this.position = this.position + 1;
-	}
-
-	int getPosition() {
-		return position;
+		carPosition.add(1);
 	}
 
 	String carName() {
@@ -26,5 +23,10 @@ public class Car {
 		}
 	}
 
-
+	@Override
+	public String toString() {
+		return new StringBuilder(carName.getName())
+			.append(" : ")
+			.append(carPosition).toString();
+	}
 }

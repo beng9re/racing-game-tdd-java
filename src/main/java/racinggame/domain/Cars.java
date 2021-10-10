@@ -33,7 +33,7 @@ public class Cars {
 
 	private void validation(String carNames) {
 		if(!ValidationUtils.nameValid(carNames)) {
-			throw new IllegalArgumentException("[ERROR] 자동차 이름은 쉼표(,)로 구별하여야 합니다.");
+			throw new IllegalArgumentException("[ERROR] carNames는 쉼표(,)로 구별하여야 합니다.");
 		}
 	}
 }

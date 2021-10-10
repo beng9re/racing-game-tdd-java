@@ -4,10 +4,6 @@ import static org.assertj.core.api.Assertions.*;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.CsvSource;
-
-import nextstep.utils.Randoms;
 
 public class CarTest {
 
@@ -17,7 +13,6 @@ public class CarTest {
 	void setUp(){
 		car = new Car("자동차");
 	}
-
 
 	@Test
 	void 차의_이름의_길이가_5자_이하여야_한다() {
@@ -42,22 +37,30 @@ public class CarTest {
 
 	@Test
 	void 차가_전진한다() {
-		int position = car.getPosition();
 		car.move();
-		assertThat(car.getPosition()).isEqualTo(position+1);
+		assertThat(car.carPosition).isEqualTo(new CarPosition(1));
 	}
 
 
 	@Test
 	void 특정숫자가_4이상이면_차가전진_한다() {
 		car.racing(0);
-		assertThat(car.getPosition()).isEqualTo(0);
+		assertThat(car.carPosition).isEqualTo(new CarPosition(0));
 		car.racing(3);
-		assertThat(car.getPosition()).isEqualTo(0);
+		assertThat(car.carPosition).isEqualTo(new CarPosition(0));
 		car.racing(4);
-		assertThat(car.getPosition()).isEqualTo(1);
+		assertThat(car.carPosition).isEqualTo(new CarPosition(1));
 		car.racing(5);
-		assertThat(car.getPosition()).isEqualTo(2);
+		assertThat(car.carPosition).isEqualTo(new CarPosition(2));
+	}
+
+
+
+	@Test
+	void 자동차의_현재상태를_출력한다() {
+		assertThat(car.toString()).isEqualTo("자동차 : ");
+		car.move();
+		assertThat(car.toString()).isEqualTo("자동차 : -");
 	}
 
 
