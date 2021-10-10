@@ -3,12 +3,12 @@ package racinggame.domain;
 import java.util.Objects;
 
 public class CarName {
-	private final static String EMPTY_STRING = "";
-	private String name;
+	private static final String EMPTY_STRING = "";
+	private final String name;
 
 	CarName(String name) {
 		validate(name);
-		name = this.name;
+		this.name = name;
 	}
 
 	private void validate(String carName) {
@@ -19,16 +19,19 @@ public class CarName {
 			throw new IllegalStateException("[ERROR] 이름은 5이하여야 합니다. length: " + carName.length());
 		}
 	}
+
 	public String getName() {
 		return name;
 	}
 
 	@Override
 	public boolean equals(Object o) {
-		if (this == o)
+		if (this == o) {
 			return true;
-		if (o == null || getClass() != o.getClass())
+		}
+		if (o == null || getClass() != o.getClass()) {
 			return false;
+		}
 		CarName carName = (CarName)o;
 		return Objects.equals(name, carName.name);
 	}

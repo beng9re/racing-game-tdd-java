@@ -16,10 +16,15 @@ public class Car {
 		return position;
 	}
 
+	String carName() {
+		return carName.getName();
+	}
+
 	public void racing(int command) {
 		if (CarMoveStatus.START.equals(CarMoveStatus.status(command))) {
-			move();
-			return;
+			this.move();
 		}
 	}
+
+
 }
