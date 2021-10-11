@@ -32,6 +32,15 @@ public class ApplicationTest extends NSTest {
         });
     }
 
+    @Test
+    void 두명의_우승자() {
+        assertRandomTest(() -> {
+            run("pobi,woni", "1");
+            verify("pobi : -", "woni : ", "최종 우승자는 pobi,woni 입니다.");
+        }, MOVING_FORWARD, MOVING_FORWARD);
+    }
+
+
     @AfterEach
     void tearDown() {
         outputStandard();
