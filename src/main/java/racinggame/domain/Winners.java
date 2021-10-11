@@ -4,7 +4,7 @@ import java.util.List;
 
 public class Winners {
 	private static final  String COMMA = ",";
-	List<Car> winners;
+	private List<Car> winners;
 	public Winners(Cars cars) {
 		winners = cars.positionMaxCarList();
 	}

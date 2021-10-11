@@ -6,7 +6,7 @@ public class CarPosition {
 	private int position = 0;
 	private static final String POSITION_CARECTOR = "-";
 
-	public CarPosition(int position) {
+	CarPosition(int position) {
 		validate(position);
 		this.position = position;
 	}

@@ -1,8 +1,8 @@
 package racinggame.domain;
 
 public class Car {
-	CarPosition carPosition;
-	CarName carName;
+	private CarPosition carPosition;
+	private CarName carName;
 
 	public Car(String carName) {
 		this.carName = new CarName(carName);
@@ -13,7 +13,15 @@ public class Car {
 		carPosition.add(1);
 	}
 
-	String carName() {
+	CarName getCarName() {
+		return carName;
+	}
+
+	CarPosition getCarPosition() {
+		return carPosition;
+	}
+
+	public String carName() {
 		return carName.getName();
 	}
 
